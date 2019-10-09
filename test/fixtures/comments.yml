@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  PhotoID: 1
+  Postdate: 2019-10-09 17:28:35
+  content: MyString
+
+two:
+  PhotoID: 1
+  Postdate: 2019-10-09 17:28:35
+  content: MyString

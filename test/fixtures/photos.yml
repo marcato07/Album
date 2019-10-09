@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  AlbumID: 1
+  Title: MyString
+  Description: MyString
+  Privacy: MyString
+  UploadDate: 2019-10-09
+  View: 1
+  ImagePath: MyString
+
+two:
+  AlbumID: 1
+  Title: MyString
+  Description: MyString
+  Privacy: MyString
+  UploadDate: 2019-10-09
+  View: 1
+  ImagePath: MyString
