@@ -13,16 +13,16 @@
 ActiveRecord::Schema.define(version: 2019_10_09_222902) do
 
   create_table "albums", force: :cascade do |t|
-    t.string "Title"
-    t.string "Description"
-    t.integer "View"
+    t.string "title"
+    t.string "description"
+    t.integer "view"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "PhotoID"
-    t.datetime "Postdate"
+    t.integer "photoID"
+    t.datetime "postdate"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 2019_10_09_222902) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "AlbumID"
-    t.string "Title"
-    t.string "Description"
-    t.string "Privacy"
-    t.date "UploadDate"
-    t.integer "View"
-    t.string "ImagePath"
+    t.integer "albumID"
+    t.string "title"
+    t.string "description"
+    t.string "privacy"
+    t.date "uploadDate"
+    t.integer "view"
+    t.string "imagePath"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

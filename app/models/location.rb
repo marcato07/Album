@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  validates :name, :shorname, presence: true
+  validates :name, :shortname, presence: true
 end

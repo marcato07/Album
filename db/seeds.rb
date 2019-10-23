@@ -7,3 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # frozen_string_literal: true
 
+movieLocation= Location.create({name:'movie', shortname:'mv'})
+movieAlbum= Album.create({title: 'tester', description: 'movie', view:123})
+puts movieAlbum
+
