@@ -1,13 +1,12 @@
 class CreatePhotos < ActiveRecord::Migration[6.0]
   def change
     create_table :photos do |t|
-      t.integer :AlbumID
-      t.string :Title
-      t.string :Description
-      t.string :Privacy
-      t.date :UploadDate
-      t.integer :View
-      t.string :ImagePath
+\      t.string :title
+      t.string :description
+      t.string :privacy
+      t.date :yploadDate
+      t.integer :view
+      t.string :imagePath
 
       t.timestamps
     end
