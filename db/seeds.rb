@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # frozen_string_literal: true
 
+Location.destroy_all
+Album.destroy_all
+Tag.destroy_all
+Photo.destroy_all
+Comment.destroy_all
+
+
 movieLocation= Location.create({name:'movie', shortname:'mv'})
 movieAlbum= Album.create({title: 'tester', description: 'movie', view:123})
 puts movieAlbum
