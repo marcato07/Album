@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Album</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,21 @@
   </head>
 
   <body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Photo', photo_index_url %></li>
+        <li><%= link_to 'Location', location_index_url %></li>
+        <li><%= link_to 'Tag', tag_index_url %></li>
+        <li><%= link_to 'Comment', comment_index_url %></li>
+        <li><%= link_to 'About', about_index_url %></li>
+
+      </ul>
+    </nav>
+  </header>
+
     <%= yield %>
   </body>
 </html>
