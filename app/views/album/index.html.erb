@@ -3,5 +3,5 @@
 <% @album.each do |album| %>
   <h2><%= album.title %></h2>
   <p> Description:<%= album.description %></p>
-
+  <p>For a list of photo in this album, <%= link_to 'click here', album %>.</p>
 <% end %>

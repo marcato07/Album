@@ -1,7 +1,12 @@
-<h1>Welcome Album Webstie!</h1>
-<p>Let's browse Album</p>
-<% @album.each do |album| %>
-  <h2><%= album.title %></h2>
-  <p> Description:<%= album.description %></p>
+<h2><%= @album.title %></h2>
 
-<% end %>
+<p>This alblum is for <%=@album.description%>.</p>
+<h3>Students</h3>
+<ul>
+  <% @album.students.each do |student| %>
+    <li><%= link_to student.name, student %></li>
+  <% end %>
+</ul>
+
+
+<p><%= link_to 'Home', root_path %></p>
