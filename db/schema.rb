@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2019_10_09_222902) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "photoID"
     t.datetime "postdate"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -36,11 +35,10 @@ ActiveRecord::Schema.define(version: 2019_10_09_222902) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "albumID"
     t.string "title"
+    t.integer "album_id"
     t.string "description"
     t.string "privacy"
-    t.date "uploadDate"
     t.integer "view"
     t.string "imagePath"
     t.datetime "created_at", precision: 6, null: false

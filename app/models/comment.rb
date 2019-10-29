@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
-  validates :postdate, :content, presence: true
+  # validates :postdate, :content, presence: true
 
 end

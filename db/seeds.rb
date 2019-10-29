@@ -7,14 +7,40 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # frozen_string_literal: true
 
-Location.destroy_all
+# Location.destroy_all
 Album.destroy_all
-Tag.destroy_all
-Photo.destroy_all
-Comment.destroy_all
+# Tag.destroy_all
+# Photo.destroy_all
+# Comment.destroy_all
+
+# 8.times do
+#   picLocation= Location.create(
+#     name:Faker::Nation.language.unique.character,
+#     shortname:Faker::Nation.flag.unique.character
+#     )
+# end
+
+require 'faker'
+
+5.times do
+  album= Album.create(
+    title: Faker::Kpop.unique.girl_groups,
+    description: Faker::Kpop.unique.iii_groups,
+    view: rand(3..6))
+
+  number_of_photos = rand(5..10)
+
+  number_of_photos.times do
+    album.photos
+            .build(title: Faker::Movies::HarryPotter.unique.character,
+                   album_id:Faker::IDNumber.unique.valid )
+            .save
+  end
+end
+# rails db:seeds
+#   number_of_picture = rand(2..9)
 
 
-movieLocation= Location.create({name:'movie', shortname:'mv'})
 movieAlbum= Album.create({title: 'tester', description: 'movie', view:123})
-puts movieAlbum
+puts "#{Album.count}"
 
