@@ -21,6 +21,11 @@ Album.destroy_all
 # end
 
 require 'faker'
+require 'json'
+
+path = File.join(File.dirname(__FILE__), 'location.json')
+json_location = File.open(path, 'r:bom|utf-8').read
+hash_content_location = JSON.parse(json_location)
 
 5.times do
   album= Album.create(
@@ -41,6 +46,5 @@ end
 #   number_of_picture = rand(2..9)
 
 
-movieAlbum= Album.create({title: 'tester', description: 'movie', view:123})
 puts "#{Album.count}"
-
+puts "#{hash_content_location[0]["name"]}"
