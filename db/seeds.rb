@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # frozen_string_literal: true
 
-# Location.destroy_all
+Location.destroy_all
 Album.destroy_all
 # Tag.destroy_all
 # Photo.destroy_all
@@ -27,7 +27,8 @@ path = File.join(File.dirname(__FILE__), 'location.json')
 json_location = File.open(path, 'r:bom|utf-8').read
 hash_content_location = JSON.parse(json_location)
 
-5.times do
+
+20.times do
   album= Album.create(
     title: Faker::Kpop.unique.girl_groups,
     description: Faker::Kpop.unique.iii_groups,
@@ -42,9 +43,21 @@ hash_content_location = JSON.parse(json_location)
             .save
   end
 end
+
+i=0
+20.times do
+  location = Location.create(
+    name: hash_content_location[i]["name"],
+    shortname: hash_content_location[i]["shortname"] )
+    i=i+1
+end
+
 # rails db:seeds
 #   number_of_picture = rand(2..9)
 
+# tag = Tag.create( title: relevant)
 
 puts "#{Album.count}"
-puts "#{hash_content_location[0]["name"]}"
+puts "#{Location.count}"
+puts "#{Tag.count}"
+

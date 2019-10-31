@@ -1,12 +1,13 @@
 <h2><%= @album.title %></h2>
 
 <p>This alblum is for <%=@album.description%>.</p>
-<h3>Students</h3>
+<h3>photos</h3>
 <ul>
-  <% @album.students.each do |student| %>
-    <li><%= link_to student.name, student %></li>
-  <% end %>
+  <% @album.each do |album| %>
+  <li><%= link_to photo.album_id, photo %></li>
+<% end %>
 </ul>
 
 
 <p><%= link_to 'Home', root_path %></p>
+

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'about/index'
   get 'comment/index'
   get 'photo/index'
+  get 'album/index'
+  get '/search', to: 'album#show'
   # get 'welcome/index'
   # # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   # get '/houses/:id', to: 'houses#show', id: /\d+/
 
   resources :photo, only: :show
-  # get '/students/:id', to: 'students#show', id: /\d+/
+  # get '/photo/:id', to: 'photo#show', id: /\d+/
 
   resources :comment, only: :show
   # get '/teachers/:id', to: 'teachers#show', id: /\d+/

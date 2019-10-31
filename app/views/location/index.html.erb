@@ -1,2 +1,9 @@
-<h1>Location#index</h1>
-<p>Find me in app/views/tag/index.html.erb</p>
+<h1>Location List</h1>
+<% if @location.count == 0 %>
+  <p>There are no location found</p>
+<% else %>
+  <% @location.each do |location| %>
+    <h2><%= location.shortname %></h2>
+    <p> Description:<%= location.name %></p>
+  <% end %>
+<% end %>

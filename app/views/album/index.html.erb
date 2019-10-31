@@ -1,17 +1,31 @@
 <h1>Welcome Album Webstie!</h1>
-<p>Let's browse Album</p>
-<% @album.each do |album| %>
-  <h2><%= album.title %></h2>
-  <p> Description:<%= album.description %></p>
-  <p>For a list of photo in this album, <%= link_to 'click here', album %>.</p>
-<% end %>
+<p>Lets browse Album</p>
 
-<div class="container-fluid" >
-  <div class="row col-md-12 mt-5">
-    <div class="col-md-8">
-      <div class="col-md-4">
-        <%== pagy_bootstrap_nav(@pagy) %>
+
+<% if @album.count == 0 %>
+  <p>There are no album found</p>
+<% else %>
+    <%= form_tag album_index_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+
+    <% @album.each do |album| %>
+      <h2><%= album.title %></h2>
+      <p> Description:<%= album.description %></p>
+      <p>For a list of photo in this album, <%= link_to 'click here', album %>.</p>
+    <% end %>
+  <% end %>
+
+
+  <div class="container-fluid" >
+    <div class="row col-md-12 mt-5">
+      <div class="col-md-8">
+        <div class="col-md-4">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
       </div>
     </div>
   </div>
-</div>

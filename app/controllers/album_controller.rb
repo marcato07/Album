@@ -4,8 +4,9 @@ class AlbumController < ApplicationController
 		if params[:title]
 			pagy(Album.where('name LIKE ?', "%#{params[:title]}%"), items: 5)
 		else
-			pagy(Album.all, time: 15)
+			pagy(Album.all, time: 10)
 		end
+
 	end
 
 		# Automagically load up the associated view.
