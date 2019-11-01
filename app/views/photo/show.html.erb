@@ -1,0 +1,12 @@
+<h2>Detail <%= @photo.title %> Page</h2>
+
+<p>This photo is for <%=@photo.description%></p>
+<h3>photos</h3>
+<%= image_tag( @photo.imagePath , width:'200px') %>
+Photo Id: <%=@photo.id%>
+Album Id: <%=@photo.album_id%>
+
+
+
+
+<p><%= link_to 'Home', root_path %></p>

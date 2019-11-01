@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # frozen_string_literal: true
-
+Tag.destroy_all
 Location.destroy_all
+Photo.destroy_all
 Album.destroy_all
-# Tag.destroy_all
-# Photo.destroy_all
+
 # Comment.destroy_all
 
 # 8.times do
@@ -27,22 +27,14 @@ path = File.join(File.dirname(__FILE__), 'location.json')
 json_location = File.open(path, 'r:bom|utf-8').read
 hash_content_location = JSON.parse(json_location)
 
+path_tag = File.join(File.dirname(__FILE__), 'tag.json')
+json_location_tag = File.open(path_tag, 'r:bom|utf-8').read
+hash_content_location_tag = JSON.parse(json_location_tag)
 
-20.times do
-  album= Album.create(
-    title: Faker::Kpop.unique.girl_groups,
-    description: Faker::Kpop.unique.iii_groups,
-    view: rand(3..6))
+path_pic = File.join(File.dirname(__FILE__), 'photo.json')
+json_location_pic = File.open(path_pic, 'r:bom|utf-8').read
+hash_content_location_pic = JSON.parse(json_location_pic)
 
-  number_of_photos = rand(5..10)
-
-  number_of_photos.times do
-    album.photos
-            .build(title: Faker::Movies::HarryPotter.unique.character,
-                   album_id:Faker::IDNumber.unique.valid )
-            .save
-  end
-end
 
 i=0
 20.times do
@@ -52,12 +44,43 @@ i=0
     i=i+1
 end
 
+j=0
+30.times do
+  tag = Tag.create(title: hash_content_location_tag[j]["title"])
+    j=j+1
+end
+
+# j=0
+number_of_photos = 2
+number_of_picture = 0
+10.times do
+  album= Album.create(
+    title: Faker::Kpop.unique.girl_groups,
+    description: Faker::Kpop.unique.iii_groups,
+    view: rand(3..6))
+
+  number_of_photos.times do
+    album.photos
+            .build(album_id:Faker::IDNumber.unique.valid,
+                   title: Faker::Movies::HarryPotter.unique.character,
+                   description:'tsestt',
+                   imagePath: hash_content_location_pic[number_of_picture]['img'],
+                  #  view: Tag.create(title: hash_content_location_tag[j]["title"])
+                   )
+            .save
+            number_of_picture = number_of_picture+1
+            # j=j+1
+  end
+end
+
+
+
 # rails db:seeds
 #   number_of_picture = rand(2..9)
 
-# tag = Tag.create( title: relevant)
-
+# tag = \Tag.create( title: relevant)
 puts "#{Album.count}"
 puts "#{Location.count}"
-puts "#{Tag.count}"
+puts "#{Photo.count}"
+puts "#{Tag.title}"
 
