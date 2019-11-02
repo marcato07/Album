@@ -59,13 +59,15 @@ number_of_picture = 0
     description: Faker::Kpop.unique.iii_groups,
     view: rand(3..6))
 
+    one_location = Location.all.sample
+    puts one_location
   number_of_photos.times do
     album.photos
             .build(album_id:Faker::IDNumber.unique.valid,
                    title: Faker::Movies::HarryPotter.unique.character,
                    description:'tsestt',
-                   imagePath: hash_content_location_pic[number_of_picture]['img'],
-                  #  view: Tag.create(title: hash_content_location_tag[j]["title"])
+                   imagePath: hash_content_location_pic[number_of_picture]['img']
+                  #  privacy: location info
                    )
             .save
             number_of_picture = number_of_picture+1
