@@ -60,18 +60,16 @@ number_of_picture = 0
     view: rand(3..6))
 
     one_location = Location.all.sample
-    puts one_location
+    # puts one_location.shortname
   number_of_photos.times do
     album.photos
             .build(album_id:Faker::IDNumber.unique.valid,
                    title: Faker::Movies::HarryPotter.unique.character,
                    description:'tsestt',
-                   imagePath: hash_content_location_pic[number_of_picture]['img']
-                  #  privacy: location info
-                   )
+                   imagePath: hash_content_location_pic[number_of_picture]['img'],
+                   privacy: one_location.shortname)
             .save
             number_of_picture = number_of_picture+1
-            # j=j+1
   end
 end
 

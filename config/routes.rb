@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # ^ This command creates the same routes as the following two:
   # get '/houses', to: 'houses#index'
   # get '/houses/:id', to: 'houses#show', id: /\d+/
+  resources :location, only: %i[index show]
 
   resources :photo, only: :show
   # get '/photo/:id', to: 'photo#show', id: /\d+/
